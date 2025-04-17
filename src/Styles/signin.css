@@ -1,0 +1,35 @@
+.sign-in-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-color: #00bc77;
+    background-color: #00bc77;
+    color: #fff;
+  }
+  
+  .sign-in-content {
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto 30px auto;
+    padding: 2rem;
+    background-color: white;
+    box-sizing: border-box;
+    border-radius: 8px;
+  }
+  .sign-in-icon {
+    font-size: 5rem;
+  }
+  
+
+  .input-remember {
+    display: flex;
+  }
+  
+  .input-remember label {
+    margin-left: 0.25rem;
+  }
+ 
+  

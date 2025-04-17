@@ -1,0 +1,47 @@
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #2c3e50;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 1.5rem 0 1rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+    font-weight: bold;
+    margin: 1.25rem 0 0.75rem;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 1rem 0 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1.2rem;
+    font-size: 1rem;
+    color: #2c3e50;
+  }
+
+  a {
+    color: #00bc77;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  strong {
+    font-weight: bold;
+  }
+  
+  em {
+    font-style: italic;
+  }
