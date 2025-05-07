@@ -1,50 +1,44 @@
 import React from 'react';
+import './User.css'
+import AccountCard from '../../Components/AccountCard/AccountCard';
+
 
 const User = () => {
-  
-    
-
     return (
-        <div>
-            
-            <main class="main bg-dark">
-      <div class="header">
-        <h1>Welcome back<br />Tony Jarvis!</h1>
-        <button class="edit-button">Edit Name</button>
+        <div className="main bg-dark ">
+      <div className="headername">
+        <h1 id='welcomename'>Welcome back<br />Tony Jarvis!</h1>
+        <button className="edit-button">Edit Name</button>
       </div>
-      <h2 class="sr-only">Accounts</h2>
-      <section class="account">
-        <div class="account-content-wrapper">
-          <h3 class="account-title">Argent Bank Checking (x8349)</h3>
-          <p class="account-amount">$2,082.79</p>
-          <p class="account-amount-description">Available Balance</p>
+
+      <h2 className="sr-only">Accounts</h2>
+<div className='accountcarcontainer'>
+      <AccountCard
+  title="Argent Bank Checking (x8349)"
+  amount="$2,082.79"
+  description="Available Balance"
+  showButton={true}
+/>
+
+
+<AccountCard
+  title="Argent Bank Savings (x6712)"
+  amount="$10,928.42"
+  description="Available Balance"
+  showButton={true}
+/>
+
+
+<AccountCard
+  title="Argent Bank Credit Card (x8349)"
+  amount="$184.30"
+  description="Current Balance"
+  showButton={true}
+/>
+
+</div>  
         </div>
-        <div class="account-content-wrapper cta">
-          <button class="transaction-button">View transactions</button>
-        </div>
-      </section>
-      <section class="account">
-        <div class="account-content-wrapper">
-          <h3 class="account-title">Argent Bank Savings (x6712)</h3>
-          <p class="account-amount">$10,928.42</p>
-          <p class="account-amount-description">Available Balance</p>
-        </div>
-        <div class="account-content-wrapper cta">
-          <button class="transaction-button">View transactions</button>
-        </div>
-      </section>
-      <section class="account">
-        <div class="account-content-wrapper">
-          <h3 class="account-title">Argent Bank Credit Card (x8349)</h3>
-          <p class="account-amount">$184.30</p>
-          <p class="account-amount-description">Current Balance</p>
-        </div>
-        <div class="account-content-wrapper cta">
-          <button class="transaction-button">View transactions</button>
-        </div>
-      </section>
-    </main>
-        </div>
+
     );
 };
 
