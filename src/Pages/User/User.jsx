@@ -1,9 +1,17 @@
 import React from 'react';
 import './User.css'
 import AccountCard from '../../Components/AccountCard/AccountCard';
+import { useSelector } from 'react-redux';
+
+
+
 
 
 const User = () => {
+
+  const userState = useSelector((store) => store.user )
+  console.log("test" , userState)
+
     return (
         <div className="main bg-dark ">
       <div className="headername">
