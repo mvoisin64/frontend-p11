@@ -3,28 +3,33 @@ import './User.css'
 import { useEffect } from 'react';
 import AccountCard from '../../Components/AccountCard/AccountCard';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserInfo } from '../../redux/userslice';
+import { setUserInfo, setToken } from '../../redux/userslice';
 import axios from 'axios';
 
 const User = () => {
+  const dispatch = useDispatch();
 
-const dispatch = useDispatch();
-  const token = useSelector((state) => state.user.token);
-  console.log("test2," , token)
-  const userState = useSelector((store) => store.user )
-  console.log("test1" , userState)
+// 🆕 Charge le token au montage
+useEffect(() => {
+  const savedToken = localStorage.getItem('token');
+  if (savedToken) {
+    dispatch(setToken(savedToken));
+  }
+}, [dispatch]);
 
-  const { firstName, lastName } = useSelector((state) => state.user);
 
-  console.log("Token envoyé dans l'en-tête :", token);
-  
+const { token, firstName, lastName, isLoggedIn } = useSelector((state) => state.user);
+
+
+console.log("Token récupéré depuis Redux :", token);
+
+// 🔁 Fait la requête uniquement si token est présent
 useEffect(() =>{
   const fetchUserProfile = async () => {
 
     try {
       const response = await axios.get(
         'http://localhost:3001/api/v1/user/profile',
-        {},
         {
           headers: {
             Authorization: `Bearer ${token}`,

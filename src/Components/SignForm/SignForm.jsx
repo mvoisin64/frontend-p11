@@ -29,7 +29,8 @@ const SignForm = () => {
         // Sauvegarde le token (localStorage ou Redux selon ton projet)
      
         localStorage.setItem('token', token);
-       dispatch(setToken(token))
+       
+        dispatch(setToken(token))
 
 
       // Redirection vers /user si le login a réussi
