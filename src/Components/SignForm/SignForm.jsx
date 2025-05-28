@@ -24,6 +24,7 @@ const SignForm = () => {
         password: password,
       });
 
+
       const token = response.data.body.token;
       console.log("Token reçu depuis l’API :", token);
         // Sauvegarde le token (localStorage ou Redux selon ton projet)
@@ -40,7 +41,9 @@ const SignForm = () => {
     } catch (error) {
       alert('Identifiants invalides ou utilisateur introuvable.');
       console.error('Erreur de connexion :', error);
+
     }
+
   };
 
 

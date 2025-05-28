@@ -4,7 +4,8 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   firstName: '',
-  lastName: ''
+  lastName: '',
+  userName: '',
 };
 
 const userSlice = createSlice({
@@ -18,11 +19,15 @@ const userSlice = createSlice({
     
     logout: (state) => {
       state.token = null;
+      state.firstName = '';
+      state.lastName = '';
+      state.userName = '';
       state.isLoggedIn = false;
     },
     setUserInfo: (state, action) => {
       state.firstName = action.payload.firstName;
       state.lastName = action.payload.lastName;
+      state.userName = action.payload.userName;
     }
   },
 });

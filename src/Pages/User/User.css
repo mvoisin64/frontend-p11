@@ -21,6 +21,48 @@
     padding: 10px;
     margin-bottom: 59px;
   }
+
+  .edit-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .edit-form h2{
+    text-align: center;
+  }
+  
+  .edit-inputs input {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    width: 87%;
+
+  }
+  
+  .edit-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .edit-buttons button {
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    margin: 4px;
+    background-color: #00bc77;
+    border-color: #00bc77;
+    color: #fff;
+    font-weight: bold;
+  border-radius: 5px;
+  }
+
+
   
   .accountcarcontainer{
 padding: 35px;

@@ -5,9 +5,10 @@ import AccountCard from '../../Components/AccountCard/AccountCard';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserInfo, setToken } from '../../redux/userslice';
 import axios from 'axios';
+import { useState } from 'react';
 
 const User = () => {
-  const dispatch = useDispatch();
+ const dispatch = useDispatch();
 
 // 🆕 Charge le token au montage
 useEffect(() => {
@@ -18,8 +19,13 @@ useEffect(() => {
 }, [dispatch]);
 
 
-const { token, firstName, lastName, isLoggedIn } = useSelector((state) => state.user);
+const { token, firstName, lastName, isLoggedIn, userName } = useSelector((state) => state.user);
 
+const [isEditing, setIsEditing] = useState(false);
+const [newUserName, setNewUserName] = useState(userName); // prérempli avec le userName actuel
+
+
+console.log("userName :", userName);
 
 console.log("Token récupéré depuis Redux :", token);
 
@@ -36,9 +42,11 @@ useEffect(() =>{
           },
         }
       );
-      const { firstName, lastName } = response.data.body;
+      const { firstName, lastName, userName } = response.data.body;
 
-      dispatch(setUserInfo({ firstName, lastName }));
+      dispatch(setUserInfo({ firstName, lastName, userName }));
+
+ 
 
     } catch (error) {
       console.error("Erreur lors de la récupération du profil :", error);
@@ -52,10 +60,53 @@ useEffect(() =>{
 
     return (
         <div className="main bg-dark ">
-      <div className="headername">
-        <h1 id='welcomename'>Welcome back<br />{firstName} {lastName}</h1>
-        <button className="edit-button">Edit Name</button>
-      </div>
+    {!isEditing && (
+  <div className="headername">
+    <h1 id='welcomename'>Welcome back<br />{firstName} {lastName}</h1>
+    <button className="edit-button" onClick={() => setIsEditing(true)}>
+      Edit Name
+    </button>
+  </div>
+)}
+
+{isEditing && (
+  <div className="edit-form">
+    <h2>Edit User Info</h2>
+
+    <div className="edit-inputs">
+      <input
+        type="text"
+        value={newUserName}
+        onChange={(e) => setNewUserName(e.target.value)}
+        placeholder="User name"
+      />
+      <input type="text" value={firstName} readOnly />
+      <input type="text" value={lastName} readOnly />
+    </div>
+
+    <div className="edit-buttons">
+      <button onClick={() => {
+        // ici tu peux ajouter un dispatch pour sauvegarder le userName
+        console.log("Save userName :", newUserName);
+        setIsEditing(false);
+      }}>
+        Save
+      </button>
+
+      <button onClick={() => {
+        setNewUserName(userName); // remet l'ancien nom si on annule
+        setIsEditing(false);
+      }}>
+        Cancel
+      </button>
+    </div>
+  </div>
+)}
+
+
+
+
+
 
       <h2 className="sr-only">Accounts</h2>
 <div className='accountcarcontainer'>
