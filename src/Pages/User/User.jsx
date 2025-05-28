@@ -47,8 +47,6 @@ const User = () => {
 
         dispatch(setUserInfo({ firstName, lastName, userName }));
 
-
-
       } catch (error) {
         console.error("Erreur lors de la récupération du profil :", error);
       }
