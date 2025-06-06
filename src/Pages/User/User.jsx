@@ -70,7 +70,7 @@ const User = () => {
     <div className="main bg-dark ">
       {!isEditing && (
         <div className="headername">
-          <h1 id='welcomename'>Welcome back<br />{firstName} {lastName}</h1>
+          <h1 id='welcomename'>Welcome back,<br />{firstName} {lastName}</h1>
           <button className="edit-button" onClick={() => setIsEditing(true)}>
             Edit Name
           </button>

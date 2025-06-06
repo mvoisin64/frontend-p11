@@ -5,6 +5,8 @@ import Home from './Pages/Home/Home.jsx';
 import SignIn from './Pages/Sign-In/Sign-in.jsx';
 import User from './Pages/User/User.jsx';
 import './Styles/main.css';
+import PrivateRoute from "./Components/PrivateRoute/PrivaterRoute.jsx";
+
 
 function App() {
   return (
@@ -15,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/user" element={<User />} />
+        <Route path="/user" element={<PrivateRoute><User /></PrivateRoute>} />
       </Routes>
       </main>
       <Footer />
