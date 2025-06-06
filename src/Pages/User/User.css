@@ -29,7 +29,7 @@
     justify-content: center;
     background-color: white;
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: 0 0 8px 8px;
     display: flex;
     flex-direction: column;
   }
@@ -134,5 +134,19 @@ padding: 35px;
     .transaction-button {
       width: 200px;
     }
+
   }
+
+  @media (max-width: 480px) {
+
+    .main .headername h1 {
+      font-size: 1.5rem;
+    }
+
+    #welcomename{
+      margin: -2.5rem 27px 1rem;
+    }  
+  
+  }
+
   

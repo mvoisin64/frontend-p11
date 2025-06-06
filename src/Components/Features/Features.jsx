@@ -5,7 +5,7 @@ const Features = () => {
         <section className="features">
             <h2 className="sr-only">Features</h2>
             <FeatureItem
-                icon="/img/icon-chat.avif"
+                icon="img/icon-chat.avif"
                 alt="Chat Icon"
                 title="You are our #1 priority"
                 description="Need to talk to a representative? You can get in touch through our 24/7 chat or through a phone call in less than 5 minutes."
