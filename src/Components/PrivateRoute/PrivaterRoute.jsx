@@ -7,9 +7,6 @@ const PrivateRoute = ({ children }) => {
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
   return isLoggedIn ? children : <Navigate to="/sign-in" />;
 };
-
-
-
 // Validation des props
 PrivateRoute.propTypes = {
     children: PropTypes.node.isRequired,
