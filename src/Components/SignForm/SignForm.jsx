@@ -20,7 +20,7 @@ const SignForm = () => {
 
     try {
       const response = await axios.post('http://localhost:3001/api/v1/user/login', {
-        email: username, // 👈 l'API attend "email", pas "username"
+        email: username, //l'API attend "email", pas "username"
         password: password,
       });
 
@@ -32,8 +32,6 @@ const SignForm = () => {
         localStorage.setItem('token', token);
        
         dispatch(setToken(token))
-
-
       // Redirection vers /user si le login a réussi
       navigate('/user');
 
@@ -45,10 +43,6 @@ const SignForm = () => {
     }
 
   };
-
-
-
-
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-wrapper">

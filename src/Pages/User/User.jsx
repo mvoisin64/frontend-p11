@@ -28,9 +28,7 @@ const User = () => {
 
   console.log("Token récupéré depuis Redux :", token);
 
- 
-
-  // 🔁 Fait la requête uniquement si token est présent
+  //Fait la requête uniquement si token est présent
   useEffect(() => {
     const fetchUserProfile = async () => {
 
