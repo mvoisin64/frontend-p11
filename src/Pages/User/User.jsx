@@ -18,14 +18,12 @@ const User = () => {
     }
   }, [dispatch]);
 
-  
-
+  // juste en dessous, destructuration pour récupérer ces states dans initial state du userSlice
   const { token, firstName, lastName, isLoggedIn, userName } = useSelector((state) => state.user);
   const [isEditing, setIsEditing] = useState(false);
   const [newUserName, setNewUserName] = useState(userName); // prérempli avec le userName actuel
 
   console.log("userName :", userName);
-
   console.log("Token récupéré depuis Redux :", token);
 
   //Fait la requête uniquement si token est présent
@@ -55,14 +53,9 @@ const User = () => {
     }
   }, [token, dispatch]);
 
-  
-
   useEffect(() => {
     setNewUserName(userName);
   }, [userName]);
-
-
-
 
   return (
     <div className="main bg-dark ">
@@ -132,11 +125,6 @@ const User = () => {
           </div>
         </div>
       )}
-
-
-
-
-
 
       <h2 className="sr-only">Accounts</h2>
       <div className='accountcarcontainer'>

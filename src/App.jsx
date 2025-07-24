@@ -4,6 +4,7 @@ import Footer from './Components/Footer/Footer.jsx';
 import Home from './Pages/Home/Home.jsx';
 import SignIn from './Pages/Sign-In/Sign-in.jsx';
 import User from './Pages/User/User.jsx';
+import NotFound from './Pages/NotFound/NotFound.jsx'
 import './Styles/main.css';
 import PrivateRoute from "./Components/PrivateRoute/PrivaterRoute.jsx";
 
@@ -11,16 +12,18 @@ import PrivateRoute from "./Components/PrivateRoute/PrivaterRoute.jsx";
 function App() {
   return (
     <Router>
-        <div className="app-layout">
-      <Header />
-      <main className="main">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/user" element={<PrivateRoute><User /></PrivateRoute>} />
-      </Routes>
-      </main>
-      <Footer />
+      <div className="app-layout">
+        <Header />
+        <main className="main">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/user" element={<PrivateRoute><User /></PrivateRoute>} />
+            <Route path="*" element={<NotFound />} />
+
+          </Routes>
+        </main>
+        <Footer />
       </div>
     </Router>
   );

@@ -12,8 +12,6 @@ const Header = () => {
   const navigate = useNavigate();
   const { isLoggedIn, userName } = useSelector((state) => state.user);
 
-
-
   return (
     <header className="header">
       <nav className="main-nav">

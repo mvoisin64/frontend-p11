@@ -13,7 +13,7 @@ const SignForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,19 +23,15 @@ const SignForm = () => {
         email: username, //l'API attend "email", pas "username"
         password: password,
       });
-
-
       const token = response.data.body.token;
       console.log("Token reçu depuis l’API :", token);
-        // Sauvegarde le token (localStorage ou Redux selon ton projet)
-     
-        localStorage.setItem('token', token);
-       
-        dispatch(setToken(token))
+      // Sauvegarde le token (localStorage ou Redux)
+      localStorage.setItem('token', token);
+
+      dispatch(setToken(token))
       // Redirection vers /user si le login a réussi
       navigate('/user');
 
-      
     } catch (error) {
       alert('Identifiants invalides ou utilisateur introuvable.');
       console.error('Erreur de connexion :', error);
@@ -43,6 +39,7 @@ const SignForm = () => {
     }
 
   };
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-wrapper">

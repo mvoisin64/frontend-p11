@@ -1,0 +1,30 @@
+.notfound-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.notfound-title {
+    font-size: 6rem;
+    margin: 0;
+}
+
+.notfound-message {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.notfound-link {
+    margin-top: 1rem;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    background-color: #00bc77;
+    color: #fff;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
