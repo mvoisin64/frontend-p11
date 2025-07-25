@@ -37,6 +37,7 @@ const Header = () => {
                 onClick={() => {
                   dispatch(logout());
                   localStorage.removeItem('token');
+                  sessionStorage.removeItem('token');
                 }}
               >
                 <i className="fa fa-sign-out"></i>

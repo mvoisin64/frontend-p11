@@ -10,6 +10,7 @@ import { setToken } from '../../redux/userslice';
 const SignForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [rememberMe, setRememberMe] = useState(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -24,12 +25,17 @@ const SignForm = () => {
         password: password,
       });
       const token = response.data.body.token;
-      console.log("Token reçu depuis l’API :", token);
-      // Sauvegarde le token (localStorage ou Redux)
-      localStorage.setItem('token', token);
 
-      dispatch(setToken(token))
-      // Redirection vers /user si le login a réussi
+      // 🔐 Stockage conditionnel
+      if (rememberMe) {
+        localStorage.setItem('token', token);
+      } else {
+        sessionStorage.setItem('token', token);
+      }
+
+      dispatch(setToken(token)); // Mets à jour Redux
+
+      // ✅ Redirection vers la page user
       navigate('/user');
 
     } catch (error) {
@@ -61,7 +67,12 @@ const SignForm = () => {
         />
       </div>
       <div className="input-remember">
-        <input type="checkbox" id="remember-me" />
+        <input
+          type="checkbox"
+          id="remember-me"
+          checked={rememberMe}
+          onChange={() => setRememberMe(!rememberMe)}
+        />
         <label htmlFor="remember-me">Remember me</label>
       </div>
 

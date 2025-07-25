@@ -7,10 +7,26 @@ import User from './Pages/User/User.jsx';
 import NotFound from './Pages/NotFound/NotFound.jsx'
 import './Styles/main.css';
 import PrivateRoute from "./Components/PrivateRoute/PrivaterRoute.jsx";
+import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react';
+import { setToken } from './redux/userslice';
+
 
 
 function App() {
-  return (
+const dispatch = useDispatch();
+const[loaded,setLoaded] = useState(false)
+useEffect(() => {
+    const savedToken = localStorage.getItem('token') || sessionStorage.getItem('token');
+    console.log(savedToken)
+    if (savedToken) {
+      dispatch(setToken(savedToken));
+    }
+    setBanane(true)
+  }, []);
+
+if(loaded){
+return (
     <Router>
       <div className="app-layout">
         <Header />
@@ -27,6 +43,8 @@ function App() {
       </div>
     </Router>
   );
+}
+ 
 }
 
 export default App;
