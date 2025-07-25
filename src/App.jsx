@@ -22,7 +22,7 @@ useEffect(() => {
     if (savedToken) {
       dispatch(setToken(savedToken));
     }
-    setBanane(true)
+    setLoaded(true)
   }, []);
 
 if(loaded){
